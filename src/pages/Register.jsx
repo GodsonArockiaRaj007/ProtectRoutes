@@ -10,7 +10,8 @@ const Register = () => {
     {
         setUser({...user,[e.target.name]:e.target.value})
     }
-    const handleSubmit=()=>{
+    const handleSubmit=(e)=>{
+        e.preventDefault()
         const local=JSON.parse(localStorage.getItem("users"))||[]
         if(user.name==""||user.email==""||user.password=="")
         {
