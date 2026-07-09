@@ -28,7 +28,7 @@ export const AuthProvider=({children})=>{
     const deleteuser=(current)=>{
 
         const all=JSON.parse(localStorage.getItem("users"))
-        const newuser=all.filter((e)=>e.email!=current.email&& e.password==current.password)
+        const newuser=all.filter((e)=>e.email!=current.email&& e.password!=current.password)
         localStorage.setItem("users",JSON.stringify(newuser))
     }
 
