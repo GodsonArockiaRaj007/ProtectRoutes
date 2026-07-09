@@ -9,7 +9,7 @@ export const AuthProvider=({children})=>{
     const [user,setUser]=useState()
     const navigate=useNavigate()
     useEffect(()=>{
-        const user=JSON.parse(localStorage.getItem("users"))
+        const user=JSON.parse(localStorage.getItem("users"))||[]
         setUser(user)
     },[])
 
@@ -27,7 +27,7 @@ export const AuthProvider=({children})=>{
 
     const deleteuser=(current)=>{
 
-        const all=JSON.parse(localStorage.getItem("users"))
+        const all=JSON.parse(localStorage.getItem("users"))||[]
         const newuser=all.filter((e)=>e.email!=current.email&& e.password!=current.password)
         localStorage.setItem("users",JSON.stringify(newuser))
     }
